@@ -15,6 +15,6 @@ spec:
     value: standard-ubi-8
   source:
     git:
-      url: https://github.com/David-VMware/Tanzu+Java+Web+App
+      url: https://github.com/David-VMware/Tanzu-Java-Web-App
       ref:
         branch: main
