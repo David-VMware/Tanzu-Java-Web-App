@@ -11,6 +11,8 @@ spec:
   - name: annotations
     value:
       autoscaling.knative.dev/minScale: "1"
+  - name: clusterbuilder
+    value: standard-ubi-8
   source:
     git:
       url: https://github.com/David-VMware/Tanzu+Java+Web+App
