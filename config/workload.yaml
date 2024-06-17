@@ -15,8 +15,6 @@ spec:
   - name: annotations
     value:
       autoscaling.knative.dev/minScale: "1"
-  - name: clusterbuilder
-    value: standard-ubi-8
   - name: buildServiceBindings
     value:
     - kind: Secret
