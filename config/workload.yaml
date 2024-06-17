@@ -17,6 +17,10 @@ spec:
       autoscaling.knative.dev/minScale: "1"
   - name: clusterbuilder
     value: standard-ubi-8
+  - name: buildServiceBindings
+    value:
+    - kind: Secret
+      name: supportlabsrootca
   source:
     git:
       url: https://github.com/David-VMware/Tanzu-Java-Web-App
