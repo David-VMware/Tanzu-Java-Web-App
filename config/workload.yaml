@@ -17,4 +17,4 @@ spec:
     git:
       url: https://github.com/David-VMware/Tanzu-Java-Web-App
       ref:
-        branch: main
+        branch: ca-cert
