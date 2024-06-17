@@ -6,6 +6,8 @@ metadata:
     apps.tanzu.vmware.com/workload-type: web
     apps.tanzu.vmware.com/auto-configure-actuators: "true"
     app.kubernetes.io/part-of: tanzu-java-web-app
+    carto.run/workload-name: tanzu-java-web
+    carto.run/workload-namespace: dev
 spec:
   build:
     env:
