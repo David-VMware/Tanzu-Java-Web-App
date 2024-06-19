@@ -28,16 +28,9 @@ public class Application {
 	@Bean
 	public CommandLineRunner commandLineRunner(RestTemplate restTemplate) {
     		return args -> {
-        		try {
-            			String url = "https://support-lab-status.cfapps-01.slot-34.tanzu-gss-labs.vmware.com/";
-            			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.HEAD, null, String.class);
-            			System.out.println("Response Headers: " + response.getHeaders());
-        		} catch (HttpClientErrorException | HttpServerErrorException e) {
-            			System.out.println("Error Code: " + e.getStatusCode());
-            			System.out.println("Error Response Body: " + e.getResponseBodyAsString());
-        		} catch (Exception e) {
-           			 System.out.println("An unexpected error occurred: " + e.getMessage());
-        		}
-    		};
+            		String url = "http://support-lab-status.cfapps-01.slot-34.tanzu-gss-labs.vmware.com/";
+            		ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.HEAD, null, String.class);
+            		System.out.println("Response Headers: " + response.getHeaders());
+        	};
 	}
 }
