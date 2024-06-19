@@ -9,6 +9,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.boot.actuate.trace.http.HttpTraceRepository;
 import org.springframework.boot.actuate.trace.http.InMemoryHttpTraceRepository;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 public class Application {
