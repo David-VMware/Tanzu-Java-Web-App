@@ -28,7 +28,7 @@ public class Application {
 	@Bean
 	public CommandLineRunner commandLineRunner(RestTemplate restTemplate) {
     		return args -> {
-            		String url = "http://support-lab-status.cfapps-01.slot-34.tanzu-gss-labs.vmware.com/";
+            		String url = "http://10.225.31.125.nip.io/";
             		ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.HEAD, null, String.class);
             		System.out.println("Response Headers: " + response.getHeaders());
         	};
