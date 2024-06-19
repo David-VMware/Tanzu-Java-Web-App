@@ -18,22 +18,23 @@ public class Application {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-		return args -> {
-
-			System.out.println("Let's inspect the beans provided by Spring Boot:");
-
-			String[] beanNames = ctx.getBeanDefinitionNames();
-			Arrays.sort(beanNames);
-			for (String beanName : beanNames) {
-				System.out.println(beanName);
-			}
-
-		};
-	}
+        public RestTemplate restTemplate() {
+        	return new RestTemplate();
+        }
 	
-    	@Bean
-	public HttpTraceRepository htttpTraceRepository() {
-		return new InMemoryHttpTraceRepository();
+	@Bean
+	public CommandLineRunner commandLineRunner(RestTemplate restTemplate) {
+    		return args -> {
+        		try {
+            			String url = "https://support-lab-status.cfapps-01.slot-34.tanzu-gss-labs.vmware.com/";
+            			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.HEAD, null, String.class);
+            			System.out.println("Response Headers: " + response.getHeaders());
+        		} catch (HttpClientErrorException | HttpServerErrorException e) {
+            			System.out.println("Error Code: " + e.getStatusCode());
+            			System.out.println("Error Response Body: " + e.getResponseBodyAsString());
+        		} catch (Exception e) {
+           			 System.out.println("An unexpected error occurred: " + e.getMessage());
+        		}
+    		};
 	}
 }
