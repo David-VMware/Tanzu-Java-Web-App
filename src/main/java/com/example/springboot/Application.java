@@ -28,6 +28,7 @@ public class Application {
 	@Bean
 	public CommandLineRunner commandLineRunner(RestTemplate restTemplate) {
     		return args -> {
+			System.out.println("===============call site with self-signed certs=============================");
             		String url = "https://opsmgr-14.slot-34.tanzu-gss-labs.vmware.com:8081/";
             		ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.HEAD, null, String.class);
             		System.out.println("Response Headers: " + response.getHeaders());
